@@ -26,3 +26,4 @@
 
  <p>첫째 줄에 정답을 1,000,000,000으로 나눈 나머지를 출력한다.</p>
 
+<img width="571" alt="image" src="https://github.com/Yjason-K/Baekjoon-Algorithm-Study/assets/81736873/e6f0a9af-e278-4f7f-969b-5a1ec308e623">
