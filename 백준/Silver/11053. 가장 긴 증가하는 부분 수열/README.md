@@ -26,3 +26,4 @@
 
  <p>첫째 줄에 수열 A의 가장 긴 증가하는 부분 수열의 길이를 출력한다.</p>
 
+![image](https://github.com/Yjason-K/Baekjoon-Algorithm-Study/assets/81736873/c43dd91c-f755-40e8-b19a-047b6ccd56a4)
