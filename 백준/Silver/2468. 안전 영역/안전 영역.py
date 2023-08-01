@@ -1,16 +1,21 @@
-import sys
-sys.setrecursionlimit(100000)
+from collections import deque
 
-def dfs(x, y, h):
-    if x < 0 or x >= N or y < 0 or y >= N or visited[x][y] or arr[x][y] <= h:
-        return
-
+def bfs(x, y, h, visited):
+    queue = deque([(x, y)])
     visited[x][y] = True
-    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-        nx, ny = x + dx, y + dy
-        dfs(nx, ny, h)
 
+    while queue:
+        cx, cy = queue.popleft()
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = cx + dx, cy + dy
+            if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny] and arr[nx][ny] > h:
+                queue.append((nx, ny))
+                visited[nx][ny] = True
+
+import sys
 input = sys.stdin.readline
+
 N = int(input())
 arr = [list(map(int, input().split())) for _ in range(N)]
 max_height = max(map(max, arr))
@@ -23,7 +28,7 @@ for i in range(max_height + 1):  # Iterate from 0 to max_height (inclusive)
     for j in range(N):
         for k in range(N):
             if not visited[j][k] and arr[j][k] > i:
-                dfs(j, k, i)
+                bfs(j, k, i, visited)
                 safe_zones += 1
 
     answer = max(answer, safe_zones)
